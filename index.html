@@ -58,9 +58,12 @@
 
     <!-- MAIN CONTENT -->
     <div class="container p-4">
-      <div class="row">
-        <div class="col-md-6 offset-md-3">
-          <ul class="list-group" id="posts"></ul>
+      <div id="publications-title" style="display:none;">
+        <h1 class="mt-4 mb-5 text-center">Mis publicaciones</h1>
+      </div>
+      <div class="row align-items-center justify-content-center" id="posts">
+        <!-- <div class="col-6 offset-md-3" id="posts"> -->
+          <!-- <ul class="list-group" id="posts"></ul> -->
         </div>
       </div>
     </div>
@@ -200,19 +203,8 @@
       crossorigin="anonymous"
     ></script>
 
-    <!-- Firebase Script -->
-
-    <!-- Insert this script at the bottom of the HTML, but before you use any Firebase services -->
-    <!-- <script type="module">
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
-
-      // If you enabled Analytics in your project, add the Firebase SDK for Google Analytics
-      import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js";
-
-      // Add Firebase products that you want to use
-      import { getAuth } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
-      import { getFirestore } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js";
-    </script> -->
+    <!-- Toastify js -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
     <!-- Custom Code -->
     <script type="module" src="main.js"></script>
