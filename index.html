@@ -58,12 +58,31 @@
 
     <!-- MAIN CONTENT -->
     <div class="container p-4">
-      <div id="publications-title" style="display:none;">
-        <h1 class="mt-4 mb-5 text-center">Mis publicaciones</h1>
+      <div class="row justify-content-between">
+        <div class="col-6 publications-title" style="display:none;">
+          <h1 class="mt-4 mb-5 text-center">Mis publicaciones</h1>
+        </div>
+        <div class="col-4 text-end align-self-center publications-title" style="display:none;">
+          <button class="btn btn-primary" id="btn-add">Agregar</button>
+        </div>
+      </div>
+      <div class="row justify-content-center mt-4 mb-5" id="add-form" style="display:none;">
+        <div class="col-8 border border-3 rounded py-4">
+          <form id="add-posts-form">
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label">Title</label>
+              <input type="text" class="form-control" id="title-add" placeholder="title">
+            </div>
+            <div class="mb-3">
+              <label for="exampleFormControlTextarea1" class="form-label">Publications Example</label>
+              <textarea class="form-control" id="description-add" rows="4"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Add</button>
+          </form>
+
+        </div>
       </div>
       <div class="row align-items-center justify-content-center" id="posts">
-        <!-- <div class="col-6 offset-md-3" id="posts"> -->
-          <!-- <ul class="list-group" id="posts"></ul> -->
         </div>
       </div>
     </div>

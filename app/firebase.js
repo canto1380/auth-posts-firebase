@@ -3,7 +3,7 @@ import {
   getAuth
 } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
 
-import { getFirestore } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js"
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js"
 
 const firebaseConfig = {
     apiKey: "AIzaSyAt5hm5DoqHu3iQG6tBjYhaLpPeP1J53Mg",
@@ -18,3 +18,5 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app)
+export const savePosts = (title, description) => 
+  addDoc(collection(db, 'posts'), {title, description})
