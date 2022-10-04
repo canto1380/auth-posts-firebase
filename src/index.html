@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Firabesa Auth Example</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse ml-auto" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item logged-out" style="display:none;">
+              <a
+                class="nav-link"
+                href="#"
+                data-bs-toggle="modal"
+                data-bs-target="#signinModal"
+                >Signin</a
+              >
+            </li>
+            <li class="nav-item logged-out" style="display:none;">
+              <a
+                class="nav-link"
+                href="#"
+                data-bs-toggle="modal"
+                data-bs-target="#signupModal"
+                >Signup</a
+              >
+            </li>
+            <li class="nav-item logged-in" style="display:none;">
+              <a class="nav-link" href="#" id="logout">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <div class="container p-4">
+      <div class="row justify-content-between">
+        <div class="col-6 publications-title" style="display:none;">
+          <h1 class="mt-4 mb-5 text-center">Mis publicaciones</h1>
+        </div>
+        <div class="col-4 text-end align-self-center publications-title" style="display:none;">
+          <button class="btn btn-primary" id="btn-add">Agregar</button>
+        </div>
+      </div>
+      <div class="row justify-content-center mt-4 mb-5" id="add-form" style="display:none;">
+        <div class="col-8 border border-3 rounded py-4">
+          <form id="add-posts-form">
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label">Title</label>
+              <input type="text" class="form-control" id="title-add" placeholder="title">
+            </div>
+            <div class="mb-3">
+              <label for="exampleFormControlTextarea1" class="form-label">Publications Example</label>
+              <textarea class="form-control" id="description-add" rows="4"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Add</button>
+          </form>
+
+        </div>
+      </div>
+      <div class="row align-items-center justify-content-center" id="posts">
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL LOGUP -->
+    <div
+      class="modal fade"
+      id="signupModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="signup-form">
+              <div class="form-group my-3">
+                <input
+                  type="email"
+                  id="signup-email"
+                  class="form-control"
+                  placeholder="Email"
+                  required
+                />
+              </div>
+              <div class="form-group mb-3">
+                <input
+                  type="password"
+                  id="signup-password"
+                  class="form-control"
+                  placeholder="Password"
+                  required
+                />
+              </div>
+
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button type="submit" class="btn btn-primary">Sign Up</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL LOGIN -->
+    <div
+      class="modal fade"
+      id="signinModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Signin</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="signin-form">
+              <div class="form-group my-3">
+                <input
+                  type="email"
+                  id="signin-email"
+                  class="form-control"
+                  placeholder="Email"
+                  required
+                />
+              </div>
+              <div class="form-group mb-3">
+                <input
+                  type="password"
+                  id="signin-password"
+                  class="form-control"
+                  placeholder="Password"
+                  required
+                />
+              </div>
+              <button type="submit" class="btn btn-primary w-100 my-2">
+                Sign In
+              </button>
+              <button
+                type="button"
+                class="btn btn-info w-100 my-2 text-white"
+                data-bs-dismiss="modal"
+                id="googleLogin"
+              >
+                Login con Google
+              </button>
+              <button
+                type="button"
+                class="btn btn-info w-100 my-2 text-white"
+                data-bs-dismiss="modal"
+                id="faceLogin"
+              >
+                Login con Facebook
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL EDIT POSTS -->
+    <div
+      class="modal fade"
+      id="editPostModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Edit Post</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="edit-post-form">
+              <div class="form-group my-3">
+                <input
+                  type="text"
+                  id="title-edit"
+                  class="form-control"
+                  required
+                />
+              </div>
+              <div class="form-group mb-3">
+                <textarea class="form-control" id="description-edit" rows="4"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary w-100 my-2">
+                Edit
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap Script -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+      integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Toastify js -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+    <!-- Custom Code -->
+    <script type="module" src="main.js"></script>
+  </body>
+</html>
