@@ -7,6 +7,5 @@ import {
 const idLogout = document.querySelector('#logout')
 idLogout.addEventListener('click', e => {
   e.preventDefault();
-  // console.log(idLogout)
   signOut(auth).then(() => console.log('Sign out'))
 })

@@ -17,8 +17,6 @@ signupForm.addEventListener("submit", (e) => {
       signupForm.reset();
       // Close modal
       $("#signupModal").modal("hide");
-
-      // console.log("sign up");
     })
     .catch((error) => {
       console.log(error);

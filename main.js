@@ -7,7 +7,7 @@ import {
 import { collection, getDocs } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js"
 /** FUNCIONES **/
 import { loginCheck, formAddCheck } from "./app/checkLogin.js";
-import { auth, db } from "./app/firebase.js";
+import { auth, db, onGet } from "./app/firebase.js";
 import { setupPosts } from "./app/listPosts.js";
 import './app/facebookLogin.js'
 import './app/googleLogin.js'

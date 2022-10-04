@@ -12,7 +12,6 @@ btnAuthGoogle.addEventListener('click', e => {
   const provider = new GoogleAuthProvider()
   signInWithPopup(auth, provider)
   .then(result => {
-    console.log(result)
     showMessage("Welcome " + result.user.email)
   })
   .catch(error => {

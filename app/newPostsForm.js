@@ -8,7 +8,7 @@ const addPosts = document.getElementById('add-posts-form');
 const formAdd = document.querySelector('#add-form')
 const btnAdd = document.querySelector('#btn-add')
 
-const aa  = async() => {
+export const aa  = async() => {
     const querySnapshot = await getDocs(collection(db, 'posts'));
     setupPosts(querySnapshot.docs)
 }

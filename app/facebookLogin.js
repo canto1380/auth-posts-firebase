@@ -12,7 +12,6 @@ btnAuthFacebook.addEventListener('click', e => {
   const provider = new FacebookAuthProvider()
   signInWithPopup(auth, provider)
   .then(result => {
-    console.log(result)
     showMessage("Welcome" + result.user.email)
   })
   .catch(error => {
