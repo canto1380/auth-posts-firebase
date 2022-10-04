@@ -11,7 +11,7 @@ export const setupPosts = (data) => {
     data.forEach((doc) => {
       const posts = doc.data();
       const li = `
-      <div class='col-5 border border-2 rounded mx-1 my-3 h-100'>
+      <div class='col-sm-12 col-lg-5 border border-2 rounded mx-1 my-3 h-100'>
        <h5>${posts.title}</h5>
        <p>${posts.description}</p>
 
