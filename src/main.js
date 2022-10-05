@@ -11,6 +11,7 @@ import { auth, db, onGet } from "./app/firebase.js";
 import { setupPosts } from "./app/listPosts.js";
 import './app/facebookLogin.js'
 import './app/googleLogin.js'
+import './app/githubLogin.js'
 import './app/logout.js'
 import './app/signinForm.js'
 import './app/signupForm.js'
